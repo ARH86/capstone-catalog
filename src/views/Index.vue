@@ -1,6 +1,9 @@
 <template>
-  <div class="home">
-    <h1>{{ message }}</h1>
+  <div class="Index">
+    <div v-for="student for students">
+      <h4> {{ student.first_name }}</h4>
+      <h4> {{ student.last_name }}</h4>
+    </div>
   </div>
 </template>
 
@@ -8,13 +11,22 @@
 </style>
 
 <script>
+  var axios = require('axios');
+
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+           students: [],
+
     };
   },
-  created: function() {},
+  created: function() {
+    axios
+    .get("http://localhost:3000/api/students")
+    .then(response => {
+      this.students = response.data;
+    });
+  },
   methods: {},
   computed: {}
 };
