@@ -1,15 +1,43 @@
 <template>
   <div class="Index">
-    <div v-for="student for students">
-      <h4> {{ student.first_name }}</h4>
-      <h4> {{ student.last_name }}</h4>
+    <div class="container">
+      <div v-for="student for students">
+        <div class="row">
+          <div class="column">
+            <h4>Name: {{ student.first_name }} {{ student.last_name }} </h4>
+            <h4>Capstone: {{ student.capstone.name }}</h4>
+            <h4> {{ student.capstone.screenshot }}</h4>
+              <form action="">
+                <button id="" onclick="function()" type="submit" value="">More Info</button>
+              ca</form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style>
-</style>
+  {
+     box-sizing: border-box;
+ }
 
+ 
+ .column {
+     float: left;
+     width: 33.33%;
+     padding: 10px;
+     height: 300px; 
+ }
+
+
+ .row:after {
+     content: "";
+     display: table;
+     clear: both;
+ }
+
+</style>
 <script>
   var axios = require('axios');
 
@@ -22,7 +50,7 @@ export default {
   },
   created: function() {
     axios
-    .get("http://localhost:3000/api/students")
+    .get("/api/students")
     .then(response => {
       this.students = response.data;
     });
