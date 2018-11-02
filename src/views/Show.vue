@@ -18,22 +18,22 @@ export default {
   data: function() {
     return {
       student:{
-          first_name: "",
-          last_name: "",
-          github: "",
-          email: ""
+          first_name: "George",
+          last_name: "Washington",
+          github: "www.github.com",
+          email: "gboy94@gmail.com"
           }
       capstones:{
-          name: "",
-          description: "",
-          url: "",
-          screenshot: ""
+          name: "My Project",
+          description: "This is the project description",
+          url: "This is the website for where you will find the project",
+          screenshot: "https://cdn-images-1.medium.com/max/1600/0*ngXgBNNdx6iiWP8q.png"
       }
     };
   },
   created: function() {
     axios
-    .get("http://localhost:3000/api/students/" this.$route.params.id)
+    .get("/api/students/2")
     .then(response => {
       this.student = response.data;
     });
