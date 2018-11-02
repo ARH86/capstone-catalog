@@ -1,7 +1,7 @@
 <template>
   <div class="Index">
     <div class="container">
-      <div v-for="student for students">
+      <div v-for="student in students">
         <div class="row">
           <div class="column">
             <h4>Name: {{ student.first_name }} {{ student.last_name }} </h4>
