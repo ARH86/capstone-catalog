@@ -9,7 +9,7 @@
             <h4> {{ student.capstone.screenshot }}</h4>
               <form action="">
                 <button id="" onclick="function()" type="submit" value="">More Info</button>
-              ca</form>
+              </form>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@ export default {
   },
   created: function() {
     axios
-    .get("/api/students")
+    .get("/api/students/")
     .then(response => {
       this.students = response.data;
     });
